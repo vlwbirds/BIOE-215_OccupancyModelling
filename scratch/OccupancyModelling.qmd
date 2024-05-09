@@ -1,0 +1,41 @@
+---
+title: "SpatialModelling"
+format: html
+editor: visual
+---
+
+## Libraries
+
+```{r}
+install_if_missing <- function(packages) {
+  # Loop through each package in the input list
+  for (pkg in packages) {
+    # Check if the package is installed
+    if (!requireNamespace(pkg, quietly = TRUE)) {
+      # If not installed, install the package
+      install.packages(pkg)
+    }
+  }
+}
+
+# List of packages to check and install if missing
+packages <- c("auk", "lubridate", "sf", "dggridR", "unmarked",
+              "raster", "ebirdst", "MuMIn", "AICcmodavg", "fields", "tidyverse")
+
+# Call the function with the list of packages
+install_if_missing(packages)
+
+# Load the libraries (optional step)
+lapply(packages, library, character.only = TRUE)
+
+# resolve namespace conflicts
+select <- dplyr::select
+projection <- raster::projection
+
+```
+
+## Data
+
+```{r}
+
+```
